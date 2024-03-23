@@ -1,0 +1,33 @@
+name: Workspaces-example
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  root: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm run hello-web Ivo && npm run hello-cli Ivo 
+        with:
+          path: packages/cli
+          node-version: 20
+  cli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm run hello Ivo
+        with:
+          path: packages/cli
+          node-version: 20
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm run hello Ivo
+        with:
+          path: packages/web
+          node-version: 20

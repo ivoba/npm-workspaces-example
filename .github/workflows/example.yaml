@@ -38,7 +38,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
             node-version: 20
-            path: packages/web
       - name: Install dependencies
         run: npm ci
       - run: npm run hello Ivo
+        working-directory: packages/cli

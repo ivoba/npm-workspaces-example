@@ -11,22 +11,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm run hello-web Ivo && npm run hello-cli Ivo
+      - name: Call from root
+        uses: actions/setup-node@v4
         with:
             node-version: 20
+      - run: npm run hello-web Ivo && npm run hello-cli Ivo
   cli:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Call from package cli
+        uses: actions/setup-node@v4
+        with:
+            node-version: 20
       - run: npm run hello Ivo
         working-directory: packages/cli
-        with:
-          node-version: 20
   web:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm run hello Ivo
-        working-directory: packages/cli
+      - name: Call from package web
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+            node-version: 20
+            path: packages/web
+      - run: npm run hello Ivo

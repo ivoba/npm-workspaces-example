@@ -12,22 +12,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm run hello-web Ivo && npm run hello-cli Ivo 
-        with:
-          path: packages/cli
-          node-version: 20
   cli:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: npm run hello Ivo
+        working-directory: packages/cli
         with:
-          path: packages/cli
           node-version: 20
   web:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: npm run hello Ivo
+        working-directory: packages/cli
         with:
-          path: packages/web
           node-version: 20

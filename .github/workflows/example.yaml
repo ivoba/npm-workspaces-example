@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm run hello-web Ivo && npm run hello-cli Ivo 
+      - run: npm run hello-web Ivo && npm run hello-cli Ivo
+        with:
+            node-version: 20
   cli:
     runs-on: ubuntu-latest
     steps:

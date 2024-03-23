@@ -1,0 +1,8 @@
+{
+  "name": "@workspaces-example/types",
+  "version": "0.0.1",
+  "dependencies": {
+    "@types/node": "^20.11.30",
+    "@workspaces-example/cli": "^1.0.0"
+  }
+}

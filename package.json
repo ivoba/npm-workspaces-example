@@ -1,0 +1,10 @@
+{
+  "name": "workspaces-example",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "hello-cli": "npm --workspace=@workspaces-example/cli run hello",
+    "hello-web": "npm --workspace=@workspaces-example/web run hello"
+  }
+}
